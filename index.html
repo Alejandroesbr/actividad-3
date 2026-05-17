@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexusMetrics — Dashboard de Ventas</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <!-- Estilos modulares -->
+  <link rel="stylesheet" href="css/variables.css" />    <!-- Variables CSS · Reset · Accesibilidad -->
+  <link rel="stylesheet" href="css/layout.css" />       <!-- Grid · Sidebar · Header · Footer     -->
+  <link rel="stylesheet" href="css/components.css" />   <!-- Cards · Gráfico · Tabla · Animaciones-->
+  <link rel="stylesheet" href="css/responsive.css" />   <!-- Media Queries                        -->
+</head>
+
+<body>
+
+  <!-- SIDEBAR — Barra lateral de navegación -->
+  <aside class="sidebar" id="sidebar" role="navigation" aria-label="Menú principal">
+
+    <!-- Logo -->
+    <div class="sidebar__brand" aria-label="NexusMetrics">
+      <div class="sidebar__logo" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="14" height="14" rx="3" fill="var(--accent)"/>
+          <rect x="18" width="14" height="14" rx="3" fill="var(--accent)" opacity="0.5"/>
+          <rect y="18" width="14" height="14" rx="3" fill="var(--accent)" opacity="0.5"/>
+          <rect x="18" y="18" width="14" height="14" rx="3" fill="var(--accent)"/>
+        </svg>
+      </div>
+      <span class="sidebar__brand-name">NexusMetrics</span>
+    </div>
+
+    <!-- Toggle (móvil) -->
+    <button class="sidebar__toggle" id="sidebarToggle" aria-label="Cerrar menú" aria-expanded="true" aria-controls="sidebar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+    <!-- Navegación principal -->
+    <nav class="sidebar__nav" aria-label="Secciones del dashboard">
+      <ul class="sidebar__list" role="list">
+
+        <li class="sidebar__item sidebar__item--active">
+          <a href="#" class="sidebar__link" aria-current="page">
+            <span class="sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+                <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+              </svg>
+            </span>
+            <span>Resumen</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item">
+          <a href="#" class="sidebar__link">
+            <span class="sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </span>
+            <span>Analítica</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item">
+          <a href="#" class="sidebar__link">
+            <span class="sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+              </svg>
+            </span>
+            <span>Ventas</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item">
+          <a href="#" class="sidebar__link">
+            <span class="sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </span>
+            <span>Clientes</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item">
+          <a href="#" class="sidebar__link">
+            <span class="sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
+            </span>
+            <span>Productos</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item">
+          <a href="#" class="sidebar__link">
+            <span class="sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10 9 9 9 8 9"/>
+              </svg>
+            </span>
+            <span>Reportes</span>
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Sección inferior del sidebar -->
+    <div class="sidebar__footer">
+      <div class="sidebar__user" role="img" aria-label="Usuario: Ana García, Administradora">
+        <div class="sidebar__avatar" aria-hidden="true">AG</div>
+        <div class="sidebar__user-info">
+          <span class="sidebar__user-name">Ana García</span>
+          <span class="sidebar__user-role">Administradora</span>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- LAYOUT PRINCIPAL (Grid wrapper) -->
+  <div class="layout" id="layout">
+
+    <!-- ─── HEADER ─── -->
+    <header class="header" role="banner">
+
+      <!-- Botón hamburguesa (móvil) -->
+      <button class="header__menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+
+      <!-- Título de página -->
+      <div class="header__title">
+        <h1>Resumen General</h1>
+        <p class="header__subtitle">Mayo 2026 — datos en tiempo real</p>
+      </div>
+
+      <!-- Acciones del header -->
+      <div class="header__actions" role="toolbar" aria-label="Acciones rápidas">
+
+        <!-- Buscador -->
+        <div class="header__search" role="search">
+          <label for="globalSearch" class="sr-only">Buscar en el dashboard</label>
+          <span class="header__search-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </span>
+          <input type="search" id="globalSearch" class="header__search-input" placeholder="Buscar..." aria-label="Buscar en el dashboard" />
+        </div>
+
+        <!-- Notificaciones -->
+        <button class="header__btn" aria-label="Notificaciones — 3 sin leer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+          <span class="header__badge" aria-hidden="true">3</span>
+        </button>
+
+        <!-- Perfil -->
+        <button class="header__btn header__profile" aria-label="Perfil de usuario">
+          <span aria-hidden="true">AG</span>
+        </button>
+
+      </div>
+    </header>
+
+    <!--  MAIN  -->
+    <main class="main" role="main" id="main-content">
+
+      <!-- Cards -->
+      <section class="cards" aria-label="Métricas principales">
+
+        <!-- Tarjeta 1: Ingresos -->
+        <article class="card card--primary" tabindex="0" aria-label="Ingresos totales: $248,500, incremento del 12% respecto al mes anterior">
+          <div class="card__header">
+            <span class="card__label">Ingresos Totales</span>
+            <span class="card__icon card__icon--green" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 1 0 0 7h5a3.5 3.5 0 1 1 0 7H6"/>
+              </svg>
+            </span>
+          </div>
+          <div class="card__value">$248,500</div>
+          <div class="card__trend card__trend--up">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <polyline points="18 15 12 9 6 15"/>
+            </svg>
+            <span>+12% vs mes anterior</span>
+          </div>
+          <div class="card__sparkline" aria-hidden="true">
+            <svg viewBox="0 0 100 30" preserveAspectRatio="none">
+              <polyline points="0,25 15,20 30,22 45,12 60,15 75,8 90,5 100,3" fill="none" stroke="var(--accent)" stroke-width="2"/>
+            </svg>
+          </div>
+        </article>
+
+        <!-- Tarjeta 2: Pedidos -->
+        <article class="card" tabindex="0" aria-label="Pedidos del mes: 1,847, incremento del 8.3%">
+          <div class="card__header">
+            <span class="card__label">Pedidos del Mes</span>
+            <span class="card__icon card__icon--blue" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+              </svg>
+            </span>
+          </div>
+          <div class="card__value">1,847</div>
+          <div class="card__trend card__trend--up">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <polyline points="18 15 12 9 6 15"/>
+            </svg>
+            <span>+8.3% vs mes anterior</span>
+          </div>
+          <div class="card__sparkline" aria-hidden="true">
+            <svg viewBox="0 0 100 30" preserveAspectRatio="none">
+              <polyline points="0,20 15,18 30,15 45,17 60,10 75,12 90,8 100,6" fill="none" stroke="var(--blue)" stroke-width="2"/>
+            </svg>
+          </div>
+        </article>
+
+        <!-- Tarjeta 3: Clientes -->
+        <article class="card" tabindex="0" aria-label="Clientes activos: 3,214, disminución del 2.1%">
+          <div class="card__header">
+            <span class="card__label">Clientes Activos</span>
+            <span class="card__icon card__icon--orange" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </span>
+          </div>
+          <div class="card__value">3,214</div>
+          <div class="card__trend card__trend--down">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+            <span>−2.1% vs mes anterior</span>
+          </div>
+          <div class="card__sparkline" aria-hidden="true">
+            <svg viewBox="0 0 100 30" preserveAspectRatio="none">
+              <polyline points="0,8 15,10 30,9 45,14 60,13 75,18 90,17 100,20" fill="none" stroke="var(--orange)" stroke-width="2"/>
+            </svg>
+          </div>
+        </article>
+
+        <!-- Tarjeta 4: Tasa de conversión -->
+        <article class="card" tabindex="0" aria-label="Tasa de conversión: 4.72%, incremento del 0.5%">
+          <div class="card__header">
+            <span class="card__label">Conversión</span>
+            <span class="card__icon card__icon--purple" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </span>
+          </div>
+          <div class="card__value">4.72%</div>
+          <div class="card__trend card__trend--up">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <polyline points="18 15 12 9 6 15"/>
+            </svg>
+            <span>+0.5% vs mes anterior</span>
+          </div>
+          <div class="card__sparkline" aria-hidden="true">
+            <svg viewBox="0 0 100 30" preserveAspectRatio="none">
+              <polyline points="0,22 15,19 30,20 45,14 60,16 75,10 90,9 100,7" fill="none" stroke="var(--purple)" stroke-width="2"/>
+            </svg>
+          </div>
+        </article>
+
+      </section>
+
+      <!--  ZONA CENTRAL: Gráfico + Top Productos -->
+      <section class="mid-section" aria-label="Análisis de ventas y productos destacados">
+
+        <!-- Gráfico de barras CSS -->
+        <div class="chart-card" role="region" aria-label="Gráfico de ingresos por mes">
+          <div class="chart-card__header">
+            <h2 class="chart-card__title">Ingresos Mensuales</h2>
+            <div class="chart-card__tabs" role="tablist" aria-label="Período del gráfico">
+              <button class="chart-tab chart-tab--active" role="tab" aria-selected="true">2026</button>
+              <button class="chart-tab" role="tab" aria-selected="false">2025</button>
+            </div>
+          </div>
+
+          <div class="chart" role="img" aria-label="Gráfico de barras: ingresos de enero a mayo 2026">
+            <div class="chart__bars" aria-hidden="true">
+              <div class="chart__bar-group">
+                <div class="chart__bar" style="--h: 55%;" title="Enero: $136k"></div>
+                <span class="chart__label">Ene</span>
+              </div>
+              <div class="chart__bar-group">
+                <div class="chart__bar" style="--h: 70%;" title="Febrero: $173k"></div>
+                <span class="chart__label">Feb</span>
+              </div>
+              <div class="chart__bar-group">
+                <div class="chart__bar" style="--h: 62%;" title="Marzo: $153k"></div>
+                <span class="chart__label">Mar</span>
+              </div>
+              <div class="chart__bar-group">
+                <div class="chart__bar" style="--h: 80%;" title="Abril: $198k"></div>
+                <span class="chart__label">Abr</span>
+              </div>
+              <div class="chart__bar-group">
+                <div class="chart__bar chart__bar--active" style="--h: 100%;" title="Mayo: $248k"></div>
+                <span class="chart__label">May</span>
+              </div>
+            </div>
+            <!-- Línea de meta -->
+            <div class="chart__target" style="bottom: 75%;" aria-label="Meta: $185k">
+              <span>Meta $185k</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top productos -->
+        <div class="top-products" role="region" aria-label="Productos más vendidos">
+          <h2 class="top-products__title">Top Productos</h2>
+          <ul class="top-products__list" role="list">
+
+            <li class="top-products__item" tabindex="0">
+              <div class="top-products__rank" aria-hidden="true">01</div>
+              <div class="top-products__info">
+                <span class="top-products__name">Suscripción Pro</span>
+                <div class="top-products__bar-wrap" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="82% del total">
+                  <div class="top-products__bar" style="--pct: 82%;"></div>
+                </div>
+              </div>
+              <div class="top-products__amount">$89,200</div>
+            </li>
+
+            <li class="top-products__item" tabindex="0">
+              <div class="top-products__rank" aria-hidden="true">02</div>
+              <div class="top-products__info">
+                <span class="top-products__name">Plan Enterprise</span>
+                <div class="top-products__bar-wrap" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="65% del total">
+                  <div class="top-products__bar" style="--pct: 65%;"></div>
+                </div>
+              </div>
+              <div class="top-products__amount">$67,400</div>
+            </li>
+
+            <li class="top-products__item" tabindex="0">
+              <div class="top-products__rank" aria-hidden="true">03</div>
+              <div class="top-products__info">
+                <span class="top-products__name">Add-ons Premium</span>
+                <div class="top-products__bar-wrap" role="progressbar" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100" aria-label="48% del total">
+                  <div class="top-products__bar" style="--pct: 48%;"></div>
+                </div>
+              </div>
+              <div class="top-products__amount">$49,100</div>
+            </li>
+
+            <li class="top-products__item" tabindex="0">
+              <div class="top-products__rank" aria-hidden="true">04</div>
+              <div class="top-products__info">
+                <span class="top-products__name">Consultoría</span>
+                <div class="top-products__bar-wrap" role="progressbar" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100" aria-label="31% del total">
+                  <div class="top-products__bar" style="--pct: 31%;"></div>
+                </div>
+              </div>
+              <div class="top-products__amount">$29,800</div>
+            </li>
+
+            <li class="top-products__item" tabindex="0">
+              <div class="top-products__rank" aria-hidden="true">05</div>
+              <div class="top-products__info">
+                <span class="top-products__name">Soporte Técnico</span>
+                <div class="top-products__bar-wrap" role="progressbar" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100" aria-label="18% del total">
+                  <div class="top-products__bar" style="--pct: 18%;"></div>
+                </div>
+              </div>
+              <div class="top-products__amount">$13,000</div>
+            </li>
+
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- TABLA DE TRANSACCIONES -->
+      <section class="table-section" role="region" aria-label="Transacciones recientes">
+        <div class="table-card">
+          <div class="table-card__header">
+            <h2 class="table-card__title">Transacciones Recientes</h2>
+            <button class="btn-outline" aria-label="Ver todas las transacciones">Ver todas</button>
+          </div>
+
+          <div class="table-wrap" role="region" aria-label="Tabla de transacciones" tabindex="0">
+            <table class="data-table" aria-describedby="table-desc">
+              <caption id="table-desc" class="sr-only">Listado de las 5 transacciones más recientes con su estado, monto y fecha</caption>
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Cliente</th>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Monto</th>
+                  <th scope="col">Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tabindex="0">
+                  <td class="table-id">#TRX-0091</td>
+                  <td>
+                    <div class="table-user">
+                      <span class="table-avatar" aria-hidden="true" style="--hue:200;">CM</span>
+                      <span>Carlos Mendoza</span>
+                    </div>
+                  </td>
+                  <td>Suscripción Pro</td>
+                  <td>17 May 2026</td>
+                  <td class="table-amount">$299.00</td>
+                  <td><span class="badge badge--success">Pagado</span></td>
+                </tr>
+                <tr tabindex="0">
+                  <td class="table-id">#TRX-0090</td>
+                  <td>
+                    <div class="table-user">
+                      <span class="table-avatar" aria-hidden="true" style="--hue:340;">LR</span>
+                      <span>Lucía Rodríguez</span>
+                    </div>
+                  </td>
+                  <td>Plan Enterprise</td>
+                  <td>16 May 2026</td>
+                  <td class="table-amount">$1,200.00</td>
+                  <td><span class="badge badge--pending">Pendiente</span></td>
+                </tr>
+                <tr tabindex="0">
+                  <td class="table-id">#TRX-0089</td>
+                  <td>
+                    <div class="table-user">
+                      <span class="table-avatar" aria-hidden="true" style="--hue:160;">JP</span>
+                      <span>Jorge Peña</span>
+                    </div>
+                  </td>
+                  <td>Add-ons Premium</td>
+                  <td>16 May 2026</td>
+                  <td class="table-amount">$149.00</td>
+                  <td><span class="badge badge--success">Pagado</span></td>
+                </tr>
+                <tr tabindex="0">
+                  <td class="table-id">#TRX-0088</td>
+                  <td>
+                    <div class="table-user">
+                      <span class="table-avatar" aria-hidden="true" style="--hue:40;">SV</span>
+                      <span>Sandra Vargas</span>
+                    </div>
+                  </td>
+                  <td>Consultoría</td>
+                  <td>15 May 2026</td>
+                  <td class="table-amount">$850.00</td>
+                  <td><span class="badge badge--failed">Fallido</span></td>
+                </tr>
+                <tr tabindex="0">
+                  <td class="table-id">#TRX-0087</td>
+                  <td>
+                    <div class="table-user">
+                      <span class="table-avatar" aria-hidden="true" style="--hue:280;">DH</span>
+                      <span>Diego Herrera</span>
+                    </div>
+                  </td>
+                  <td>Soporte Técnico</td>
+                  <td>14 May 2026</td>
+                  <td class="table-amount">$75.00</td>
+                  <td><span class="badge badge--success">Pagado</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!--  FOOTER  -->
+    <footer class="footer" role="contentinfo">
+      <p>© 2026 NexusMetrics — Dashboard de Ventas</p>
+      <p>Última actualización: <time datetime="2026-05-17T10:30">17 de mayo de 2026, 10:30 AM</time></p>
+    </footer>
+
+  </div><!-- /layout -->
+
+  <!-- Overlay (móvil) -->
+  <div class="overlay" id="overlay" role="presentation" aria-hidden="true"></div>
+
+  <!-- Script de interactividad -->
+
+  <script src="js/main.js"></script>
+
+</body>
+</html>
