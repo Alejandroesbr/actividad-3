@@ -110,7 +110,7 @@ Las capturas en escritorio, tablet y móvil se encuentran en la carpeta `/eviden
 No requiere servidor, npm ni dependencias externas.
 
 ```bash
-git clone https://github.com/tu-usuario/nexusmetrics-dashboard.git
+git clone https://github.com/Alejandroesbr/actividad-3.git
 cd nexusmetrics-dashboard
 ```
 
